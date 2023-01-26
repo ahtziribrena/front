@@ -1,4 +1,4 @@
-import React from 'react';
+bnimport React from 'react';
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import Home from "./componentes/Home"
 import Agregar from "./componentes/Agregar"
@@ -11,7 +11,9 @@ import Editarcandidato from './componentes/editarcandidaturas';
 function App() {
   return (
     <Router>
+      
       <div class="container-fluid" className='columnas'>
+        <h1>Cambios </h1>
         <div class="row flex-nowrap">
           <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
