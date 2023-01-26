@@ -1,4 +1,4 @@
-bnimport React from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import Home from "./componentes/Home"
 import Agregar from "./componentes/Agregar"
