@@ -14,9 +14,12 @@ code {
 .navbar-custom{
   font-size: large;
   background-color: #c3a47f;
-
 }
 
+.menu{
+  background-color: #c3a47f;
+
+}
 
 .welcome{
   color: black;
@@ -72,7 +75,10 @@ code {
   text-align: center;
   color: #D5007F;
 }
-
+.linki{
+  color: white;
+  text-decoration: none;
+}
 
 
 

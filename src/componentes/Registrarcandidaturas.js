@@ -81,7 +81,9 @@ function Candidaturas() {
           <option value="Senadores Federales">Senadores Federales</option>
           <option value="Diputaciones Federales">Diputaciones Federales</option>
         </select>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div className='boton'>
+        <button type="submit" class="btn btn-danger">Registrar</button>
+        </div>
       </form>
     </div>
   );

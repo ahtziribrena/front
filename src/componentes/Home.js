@@ -26,7 +26,7 @@ function Home() {
                     <label className="login" for="exampleInputContraseña">Contraseña</label>
                     <input type="password" class="form-control"></input>
                     <div className='boton'>
-                      <button type="submit" class="btn btn-light">Ingresar sesión</button>
+                      <button type="submit" class="btn btn-danger">Ingresar sesión</button>
                     </div>
                   </div>
                 </form>

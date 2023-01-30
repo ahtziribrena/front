@@ -7,6 +7,7 @@ function Agregar() {
   const [Edad, setEdad] = useState(0)
   const [Curp, setCurp] = useState("")
   const [Telefono, setTelefono] = useState("")
+  const [Ruta, setRuta] = useState("")
   const [Id_electoral, setId_Electoral] = useState("")
 
   const guardarRegistro = async (e) => {
@@ -17,6 +18,7 @@ function Agregar() {
         Curp,
         Telefono,
         Edad,
+        Ruta,
         Id_electoral,
       })
       //navigate("/")
@@ -48,7 +50,15 @@ function Agregar() {
           <label for="exampleInputTelefono">Edad</label>
           <input type="number" class="form-control" id="edad" value={Edad} onChange={(e) => setEdad(e.target.value)}></input>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div>
+          <label for="imagenlabel">Ruta Imagen</label>
+          <input type="text" class="form-control" id="imagenlabel" value={Ruta} onChange={(e) => setRuta(e.target.value)}></input>
+        </div>
+
+        <div className='boton'>
+        <button type="submit" class="btn btn-danger">Registrar</button>
+        </div>
       </form>
     </div>
   );

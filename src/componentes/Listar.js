@@ -8,12 +8,13 @@ function Listar() {
   const elementoUsuario = usuarios.map((usuarios, i) => (
     <div class="col-4 mt-4">
       <div class="card" key={i}>
-        <img src="/images/perfil.png" class="card-img-top" alt="..." />
+        <img src={`/images/${usuarios.Ruta}ruta.jpg`} class="card-img-top" alt="..." />
         <div class="card-body">
           <p class="card-text">Nombre: {usuarios.Nombre}</p>
           <p class="card-text">Id_electoral:{usuarios.Id_electoral}</p>
           <p class="card-text">Curp: {usuarios.Curp}</p>
           <p class="card-text">Edad: {usuarios.Edad}</p>
+          <p class="card-text">Ruta: {usuarios.Ruta}</p>
           <p class="card-text">Telefono: {usuarios.Telefono}</p>
         </div>
         <div class="card-footer">
@@ -22,7 +23,7 @@ function Listar() {
               <Link to={`../editar/${usuarios._id}`} className="button is-info is-small mr-1">Editar</Link>
             </div>
             <div class="col-md-auto">
-              <button class="btn btn-success" onClick={() => eliminarUsuario(usuarios._id)}>Eliminar</button>
+              <button class="btn btn-danger" onClick={() => eliminarUsuario(usuarios._id)}>Eliminar</button>
             </div>
           </div>
         </div>
