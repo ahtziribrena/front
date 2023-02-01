@@ -146,8 +146,8 @@ function Boleta() {
                     </div>
                 </div>
             </div>
-            <div className='boton'>
-                <button type="submit" class="btn btn-danger">Votar</button>
+            <div>
+                <button type="submit"  className='submitBtn'>Votar</button>
             </div>
         </div>
 

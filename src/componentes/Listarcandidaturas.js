@@ -4,64 +4,59 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Listar() {
-    const [candidatos, setCandidatos] = useState([])
-    useEffect(() => {
-        getCandidatos()
-    }, [])
-    const getCandidatos = async () => {
-        const response = await axios.get("http://localhost:3001/candidatura/obtenerRegistros")
-        setCandidatos(response.data)
+  const [candidatos, setCandidatos] = useState([])
+  const elementoCandidato = candidatos.map((candidato, i) => (
+    <div class="col-4 mt-4">
+      <div class="card" key={i}>
+        <img src={`/images/${candidato.Ruta}ruta.jpg`} class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">Nombre completo: {candidato.Nombrecandidato}</p>
+          <p class="card-text">Id_electoral:{candidato.Id_electoralcandidato}</p>
+          <p class="card-text">Curp: {candidato.Curpcandidato}</p>
+          <p class="card-text">Edad: {candidato.Edadcandidato}</p>
+          <p class="card-text">Telefono: {candidato.Telefonocandidato}</p>
+          <p class="card-text">Direccion: {candidato.Direccioncandidato}</p>
+          <p class="card-text">Partido: {candidato.Partido}</p>
+          <p class="card-text">Puesto: {candidato.Puesto}</p>
+        </div>
+        <div class="card-footer">
+          <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+              <Link to={`../editarcandidatura/${candidato._id}`} className="button is-info is-small mr-1">Editar</Link>
+            </div>
+            <div class="col-md-auto">
+              <button class="btn btn-danger" onClick={() => eliminarCandidatos(candidato._id)}>Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))
+  useEffect(() => {
+    getCandidatos()
+  }, [])
+  const getCandidatos = async () => {
+    const response = await axios.get("http://localhost:3001/candidatura/obtenerRegistros")
+    setCandidatos(response.data)
+  }
+  const eliminarCandidatos = async (id) => {
+    try {
+      await axios.get(`http://localhost:3001/candidatura/eliminarRegistro/${id}`)
+      getCandidatos()
+    } catch (error) {
+      console.log(error)
     }
-    const eliminarCandidatos = async (id) => {
-        try {
-            await axios.get(`http://localhost:3001/candidatura/eliminarRegistro/${id}`)
-            getCandidatos()
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    return (
-        <div class="fondo">
-            <h1 className='welcome'>Listados de candidatuaras</h1>
-            <br></br>
-            <br></br>
-            <br></br>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre completo</th>
-                        <th scope="col">Curp</th>
-                        <th scope="col">Id electoral</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Edad</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Partido</th>
-                        <th scope="col">Puesto</th>
-                        <th scope="col">Eliminar</th>
-                        <th scope="col">Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        candidatos.map((candidato, i) => (
-                            <tr key={candidato._id}>
-                                <td>{candidato.Nombrecandidato}</td>
-                                <td>{candidato.Curpcandidato}</td>
-                                <td>{candidato.Id_electoralcandidato}</td>
-                                <td>{candidato.Telefonocandidato}</td>
-                                <td>{candidato.Edadcandidato}</td>
-                                <td>{candidato.Direccioncandidato}</td>
-                                <td>{candidato.Partido}</td>
-                                <td>{candidato.Puesto}</td>
-                                <td><button type="button" class="btn btn-danger" onClick={() => eliminarCandidatos(candidato._id)}>Eliminar</button></td>
-                                <td> <Link to={`../editarcandidatura/${candidato._id}`} className="button is-info is-small mr-1 ">Editar</Link></td>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
+  }
+  return (
+    <div>
+      <div className='fondo'>
+        <h1 className="h1">Lista de candidaturas</h1>
+        <div class="row">
+          {elementoCandidato}
         </div>
 
-    )
-
+      </div >
+    </div>
+  )
 }
 export default Listar;

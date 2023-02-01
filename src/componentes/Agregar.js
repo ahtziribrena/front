@@ -27,38 +27,35 @@ function Agregar() {
     }
   }
   return (
-    <div className='fondo'>
-      <form onSubmit={guardarRegistro}>
-        <h1 className="h1">Registrar ciudadano</h1>
-        <div>
-          <label for="exampleInputNombre">Nombre completo</label>
-          <input type="text" class="form-control" id="nombre" value={Nombre} onChange={(e) => setNombre(e.target.value)}></input>
+    <div onSubmit={guardarRegistro} class="wrapper">
+      <form action="" class="formulario">
+        <h1 class="title">Registrar Ciudadanos</h1>
+        <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" id="nombre" value={Nombre} onChange={(e) => setNombre(e.target.value)}></input>
+          <label for="" class="label">Nombre completo</label>
         </div>
-        <div>
-          <label for="exampleInputCurp">Curp</label>
-          <input type="text" class="form-control" id="curp" value={Curp} onChange={(e) => setCurp(e.target.value)}></input>
+        <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" id="curp" value={Curp} onChange={(e) => setCurp(e.target.value)}></input>
+          <label for="" class="label">Curp</label>
         </div>
-        <div>
-          <label for="exampleInputTelefono">Id electoral</label>
-          <input type="text" class="form-control" id="Id_electoral" value={Id_electoral} onChange={(e) => setId_Electoral(e.target.value)}></input>
+        <div class="inputContainer">
+          <input type="number" class="input" placeholder="a" id="telefono" value={Telefono} onChange={(e) => setTelefono(e.target.value)}></input>
+          <label for="" class="label">Teléfono</label>
         </div>
-        <div>
-          <label for="exampleInputTelefono">Telefono</label>
-          <input type="number" class="form-control" id="telefono" value={Telefono} onChange={(e) => setTelefono(e.target.value)}></input>
+        <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" id="Id_electoral" value={Id_electoral} onChange={(e) => setId_Electoral(e.target.value)}></input>
+          <label for="" class="label">Id electoral</label>
         </div>
-        <div>
-          <label for="exampleInputTelefono">Edad</label>
-          <input type="number" class="form-control" id="edad" value={Edad} onChange={(e) => setEdad(e.target.value)}></input>
+        <div class="inputContainer">
+          <input type="number" class="input" placeholder="a" id="edad" value={Edad} onChange={(e) => setEdad(e.target.value)}></input>
+          <label for="" class="label">Edad</label>
+        </div>
+        <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" id="imagenlabel" value={Ruta} onChange={(e) => setRuta(e.target.value)}></input>
+          <label for="" class="label">Ruta imagen</label>
         </div>
 
-        <div>
-          <label for="imagenlabel">Ruta Imagen</label>
-          <input type="text" class="form-control" id="imagenlabel" value={Ruta} onChange={(e) => setRuta(e.target.value)}></input>
-        </div>
-
-        <div className='boton'>
-        <button type="submit" class="btn btn-danger">Registrar</button>
-        </div>
+        <input type="submit" class="submitBtn" value="Registrar" />
       </form>
     </div>
   );
